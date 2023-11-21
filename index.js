@@ -20,8 +20,8 @@ app.use(bodyParser.json());
 const PORT = 8080 || process.env.PORT;
 
 
-// import admin  from "firebase-admin";
-const admin = require('firebase-admin');
+import admin  from "firebase-admin";
+// const admin = require('firebase-admin');
 // import  credentials from 'serviceAccountKey.json' assert { type: 'json' };
 
 // admin.initializeApp({
