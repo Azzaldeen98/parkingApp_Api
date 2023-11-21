@@ -1,5 +1,5 @@
 import  model   from "../models/Booking.js";
-import  firebaseResources   from "../server.js";
+import  firebaseResources   from "../index.js";
 
 export default class AuthController{
     
