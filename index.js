@@ -18,22 +18,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //===================================================
 const PORT = 8080 || process.env.PORT;
-import  firebaseResources   from "./config/firebaseConnection.js";
-export default firebaseResources;
+// import  firebaseResources   from "./config/firebaseConnection.js";
+// export default firebaseResources;
 //// ===================================================
-import Monitor from "./src/Monitor.js";
-import SpotController from './Controllers/SpotController.js';
-import Spot from './models/Spot.js';
-import ParkingStatus from './enums/ParkingStatus.js';
-import NotifictionType from './enums/NotifictionType.js';
-import Roles from './enums/Roles.js';
-import AuthController from './Controllers/AuthController.js';
-import TrackingUserLocationController from './Controllers/TrackingUserLocationController.js';
-import NotifictionController from './Controllers/NotifictionController.js';
-import BookingController from './Controllers/BookingController.js';
-import Notifiction from './models/Notifiction.js';
-import Helper from './helpers/helper.js';
-import  LocationUserState  from "./enums/LocationUserState.js";
+// import Monitor from "./src/Monitor.js";
+// import SpotController from './Controllers/SpotController.js';
+// import Spot from './models/Spot.js';
+// import ParkingStatus from './enums/ParkingStatus.js';
+// import NotifictionType from './enums/NotifictionType.js';
+// import Roles from './enums/Roles.js';
+// import AuthController from './Controllers/AuthController.js';
+// import TrackingUserLocationController from './Controllers/TrackingUserLocationController.js';
+// import NotifictionController from './Controllers/NotifictionController.js';
+// import BookingController from './Controllers/BookingController.js';
+// import Notifiction from './models/Notifiction.js';
+// import Helper from './helpers/helper.js';
+// import  LocationUserState  from "./enums/LocationUserState.js";
 
 //===================================================
 
@@ -42,7 +42,7 @@ import  LocationUserState  from "./enums/LocationUserState.js";
 
 //===================================================
 
-new Monitor().startTimer();
+// new Monitor().startTimer();
 
     // await new SpotController().setCoordinatesForAllSpots();
 
@@ -145,94 +145,94 @@ app.get('/', async (req, res) => {
 // });
 
 
-app.post('/setUserRole',async(req,res)=>{
+// app.post('/setUserRole',async(req,res)=>{
 
-    console.log(req.body);
-    try
-    {
-        new AuthController().setCustomRole(req.body.uId,Roles.User);
+//     console.log(req.body);
+//     try
+//     {
+//         new AuthController().setCustomRole(req.body.uId,Roles.User);
         
        
-        res.status(200).json("successfully");
+//         res.status(200).json("successfully");
     
-    }catch(err)
-    {
-        console.log(err.message);
-        res.json({"error":err.message});
-    }
+//     }catch(err)
+//     {
+//         console.log(err.message);
+//         res.json({"error":err.message});
+//     }
 
-});
+// });
 
-app.get('/getUserLocationState/',async(req,res)=>{
+// app.get('/getUserLocationState/',async(req,res)=>{
 
 
-    // console.log(req.query);
-    var userLoc={
-        userId:req.query.userId,
-        location:{
-            x:req.query.latitude,
-            y:req.query.longitude
-        },
-    }
+//     // console.log(req.query);
+//     var userLoc={
+//         userId:req.query.userId,
+//         location:{
+//             x:req.query.latitude,
+//             y:req.query.longitude
+//         },
+//     }
 
     
-    try
-    {
+//     try
+//     {
       
-       let response= await new TrackingUserLocationController().getLocationState(userLoc.location);
-       if(response==LocationUserState.Outside)
-       {
+//        let response= await new TrackingUserLocationController().getLocationState(userLoc.location);
+//        if(response==LocationUserState.Outside)
+//        {
 
-            await new BookingController().delete(userLoc.userId);
+//             await new BookingController().delete(userLoc.userId);
         
-            var user_Id=await new AuthController().getUsersWithRole(Roles.Admin);
-            if(user_Id.length>1)
-            {
-                for(var i=0;i<user_Id.length;i++)
-                {
-                    var notify=new Notifiction();
-                    notify.title="مغادرة الجامعة";
-                    notify.body="المستخدم الحالي غادر  الجامعة قبل انتهاء موعد الحجز  !!";
-                    notify.topic=user_Id[i];
-                    notify.type=NotifictionType.Admin;
-                    await new NotifictionController().store(notify);
-                }
-            }
-            console.log(user_Id);
+//             var user_Id=await new AuthController().getUsersWithRole(Roles.Admin);
+//             if(user_Id.length>1)
+//             {
+//                 for(var i=0;i<user_Id.length;i++)
+//                 {
+//                     var notify=new Notifiction();
+//                     notify.title="مغادرة الجامعة";
+//                     notify.body="المستخدم الحالي غادر  الجامعة قبل انتهاء موعد الحجز  !!";
+//                     notify.topic=user_Id[i];
+//                     notify.type=NotifictionType.Admin;
+//                     await new NotifictionController().store(notify);
+//                 }
+//             }
+//             console.log(user_Id);
             
-       }
+//        }
 
-       res.status(200).json(response);
+//        res.status(200).json(response);
     
-    }catch(err)
-    {
-        console.log(err.message);
-        res.json({"error":err.message});
-    }
+//     }catch(err)
+//     {
+//         console.log(err.message);
+//         res.json({"error":err.message});
+//     }
 
-});
+// });
 
 
-app.post('/signUp',async(req,res)=>{
+// app.post('/signUp',async(req,res)=>{
 
 
  
 
-    console.log(req.body);
-    try 
-    {
+//     console.log(req.body);
+//     try 
+//     {
 
-        new AuthController().setCustomRole(req.body.userId,req.body.role);
-        res.status(200).json('userResponse');
+//         new AuthController().setCustomRole(req.body.userId,req.body.role);
+//         res.status(200).json('userResponse');
     
-    }catch(err)
-    {
-        console.log(err.message);
-        res.json({"error":err.message});
-    }
+//     }catch(err)
+//     {
+//         console.log(err.message);
+//         res.json({"error":err.message});
+//     }
 
    
-});
+// });
 
 
 
