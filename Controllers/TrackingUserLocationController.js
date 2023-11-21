@@ -5,7 +5,7 @@ import  LocationUserState  from "../enums/LocationUserState.js";
 import  LatLng  from "../models/LatLng.js";
 import  NotifictionController  from "./NotifictionController.js";
 import  Helper  from "../helpers/helper.js";
-import  firebaseResources   from "../server.js";
+import  firebaseResources   from "../index.js";
 
 const helper=new Helper();
 
