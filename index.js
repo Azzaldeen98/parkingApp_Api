@@ -41,6 +41,8 @@ const firebaseResources={
         Notifictions:db.ref("Notifictions"),
          }
 
+export default firebaseResources;
+
 
 //// ===================================================
 // import Monitor from "./src/Monitor.js";
@@ -304,4 +306,4 @@ app.listen(PORT, () => {
     console.log(`Server is listening on Port ${PORT}`)
   })
 
-export default firebaseResources;
+
