@@ -18,8 +18,30 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //===================================================
 const PORT = 8080 || process.env.PORT;
-import  firebaseResources   from "./config/firebaseConnection.js";
-export default firebaseResources;
+
+
+import admin  from "firebase-admin";
+import  credentials from 'serviceAccountKey.json' assert { type: 'json' };
+
+admin.initializeApp({
+    credential:admin.credential.cert(credentials),
+    databaseURL: 'https://parkingapp-b8c80-default-rtdb.asia-southeast1.firebasedatabase.app/'
+});
+
+const db=admin.database();
+
+// import  firebaseResources   from "./config/firebaseConnection.js";
+const firebaseResources={ 
+        admin,
+        Spots:db.ref("Spots"),
+        Bookings:db.ref("Bookings"),
+        ParkingGroups:db.ref("ParkingGroups"),
+        Users:db.ref("Users"),
+        BookingTemp:db.ref("BookingTemp"),
+        Notifictions:db.ref("Notifictions"),
+         }
+
+
 //// ===================================================
 // import Monitor from "./src/Monitor.js";
 // import SpotController from './Controllers/SpotController.js';
@@ -281,3 +303,5 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is listening on Port ${PORT}`)
   })
+
+export default firebaseResources;
