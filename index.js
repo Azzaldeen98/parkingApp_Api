@@ -20,28 +20,29 @@ app.use(bodyParser.json());
 const PORT = 8080 || process.env.PORT;
 
 
-import admin  from "firebase-admin";
-import  credentials from 'serviceAccountKey.json' assert { type: 'json' };
+// import admin  from "firebase-admin";
+const admin = require('firebase-admin');
+// import  credentials from 'serviceAccountKey.json' assert { type: 'json' };
 
-admin.initializeApp({
-    credential:admin.credential.cert(credentials),
-    databaseURL: 'https://parkingapp-b8c80-default-rtdb.asia-southeast1.firebasedatabase.app/'
-});
+// admin.initializeApp({
+//     credential:admin.credential.cert(credentials),
+//     databaseURL: 'https://parkingapp-b8c80-default-rtdb.asia-southeast1.firebasedatabase.app/'
+// });
 
-const db=admin.database();
+// const db=admin.database();
 
-// import  firebaseResources   from "./config/firebaseConnection.js";
-const firebaseResources={ 
-        admin,
-        Spots:db.ref("Spots"),
-        Bookings:db.ref("Bookings"),
-        ParkingGroups:db.ref("ParkingGroups"),
-        Users:db.ref("Users"),
-        BookingTemp:db.ref("BookingTemp"),
-        Notifictions:db.ref("Notifictions"),
-         }
+// // import  firebaseResources   from "./config/firebaseConnection.js";
+// const firebaseResources={ 
+//         admin,
+//         Spots:db.ref("Spots"),
+//         Bookings:db.ref("Bookings"),
+//         ParkingGroups:db.ref("ParkingGroups"),
+//         Users:db.ref("Users"),
+//         BookingTemp:db.ref("BookingTemp"),
+//         Notifictions:db.ref("Notifictions"),
+//          }
 
-export default firebaseResources;
+// export default firebaseResources;
 
 
 //// ===================================================
