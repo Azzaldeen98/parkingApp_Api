@@ -18,22 +18,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //===================================================
 const PORT = 8080 || process.env.PORT;
-// import  firebaseResources   from "./config/firebaseConnection.js";
-// export default firebaseResources;
-//===================================================
-// import Monitor from "./src/Monitor.js";
-// import SpotController from './Controllers/SpotController.js';
-// import Spot from './models/Spot.js';
-// import ParkingStatus from './enums/ParkingStatus.js';
-// import NotifictionType from './enums/NotifictionType.js';
-// import Roles from './enums/Roles.js';
-// import AuthController from './Controllers/AuthController.js';
-// import TrackingUserLocationController from './Controllers/TrackingUserLocationController.js';
-// import NotifictionController from './Controllers/NotifictionController.js';
-// import BookingController from './Controllers/BookingController.js';
-// import Notifiction from './models/Notifiction.js';
-// import Helper from './helpers/helper.js';
-// import  LocationUserState  from "./enums/LocationUserState.js";
+import  firebaseResources   from "./config/firebaseConnection.js";
+export default firebaseResources;
+//// ===================================================
+import Monitor from "./src/Monitor.js";
+import SpotController from './Controllers/SpotController.js';
+import Spot from './models/Spot.js';
+import ParkingStatus from './enums/ParkingStatus.js';
+import NotifictionType from './enums/NotifictionType.js';
+import Roles from './enums/Roles.js';
+import AuthController from './Controllers/AuthController.js';
+import TrackingUserLocationController from './Controllers/TrackingUserLocationController.js';
+import NotifictionController from './Controllers/NotifictionController.js';
+import BookingController from './Controllers/BookingController.js';
+import Notifiction from './models/Notifiction.js';
+import Helper from './helpers/helper.js';
+import  LocationUserState  from "./enums/LocationUserState.js";
 
 //===================================================
 
@@ -42,7 +42,7 @@ const PORT = 8080 || process.env.PORT;
 
 //===================================================
 
-// new Monitor().startTimer();
+new Monitor().startTimer();
 
     // await new SpotController().setCoordinatesForAllSpots();
 
@@ -130,13 +130,19 @@ const PORT = 8080 || process.env.PORT;
 
 // 
 
-
-app.get('/',async(req,res)=>{
-
-  
-    res.status(200).json("Parking App Server connection is successfully ");
-   
+app.get('/', async (req, res) => {
+    
+  res.send("Parking App Server connection is successful");
 });
+
+
+// app.get('/',async(req,res)=>{
+
+
+    
+//     res.status(200).json("Parking App Server connection is successfully ");
+   
+// });
 
 
 app.post('/setUserRole',async(req,res)=>{
