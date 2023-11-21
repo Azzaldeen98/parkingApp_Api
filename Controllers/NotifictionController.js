@@ -1,7 +1,7 @@
 import  Notifiction   from "../models/Notifiction.js";
 import  NotifictionType   from "../enums/NotifictionType.js";
 import  NotifictionStatus   from "../enums/NotifictionStatus.js";
-import  firebaseResources   from "../server.js";
+import  firebaseResources   from "../index.js";
 import Helper from '../helpers/helper.js';
 
 export default class NotifictionController{
