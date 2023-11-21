@@ -6,7 +6,7 @@ import  NotifictionType  from "../enums/NotifictionType.js";
 import  NotifictionController  from "../Controllers/NotifictionController.js";
 import  TimeVerificationProcess  from "../enums/TimeVerificationProcess.js";
 import  Helper  from "../helpers/helper.js";
-import  firebaseResources   from "../server.js";
+import  firebaseResources   from "../index.js";
 const helper=new Helper();
 
 
