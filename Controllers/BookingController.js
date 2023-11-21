@@ -1,5 +1,5 @@
 import  model   from "../models/Booking.js";
-import  firebaseResources   from "../server.js";
+import  firebaseResources   from "../index.js";
 import  ParkingStatus  from "../enums/ParkingStatus.js";
 import  NotifictionType  from "../enums/NotifictionType.js";
 import  NotifictionController  from "../Controllers/NotifictionController.js";
