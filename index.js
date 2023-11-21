@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //===================================================
 const PORT = 8080 || process.env.PORT;
-// import  firebaseResources   from "./config/firebaseConnection.js";
-// export default firebaseResources;
+import  firebaseResources   from "./config/firebaseConnection.js";
+export default firebaseResources;
 //// ===================================================
 // import Monitor from "./src/Monitor.js";
 // import SpotController from './Controllers/SpotController.js';
