@@ -1,6 +1,6 @@
 
 import  model   from "../models/BookingTemp.js";
-import  firebaseResources   from "../server.js";
+import  firebaseResources   from "../index.js";
 export default class UserController{
     
     
