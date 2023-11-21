@@ -2,7 +2,7 @@
 import Spot from "../models/Spot.js";
 import ParkingStatus from "../enums/ParkingStatus.js";
 
-import  firebaseResources   from "../server.js";
+import  firebaseResources   from "../index.js";
 
 class LatLng{
 
